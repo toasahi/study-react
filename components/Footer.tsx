@@ -1,65 +1,35 @@
 
-import styles from '@/styles/Home.module.css'
+import classes from '@/components/Footer.module.css'
+import { Card } from './Card'
 
 export function Footer() {
+  const cardContents = [
+    {
+      href : "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title : "Docs",
+      description : "Find in-depth information about Next.js features and&nbsp;API."
+    },
+    {
+      href : "https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title : "Learn",
+      description : "Learn about Next.js in an interactive course with&nbsp;quizzes!"
+    },
+    {
+      href : "https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title : "Templates",
+      description : "Discover and deploy boilerplate example Next.js&nbsp;projects."
+    },
+    {
+      href : "https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
+      title : "Deploy",
+      description : "Instantly deploy your Next.js site to a shareable URLwith&nbsp;Vercel."
+    }
+  ]
   return (
-        <footer className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
-
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
+        <footer className={classes.grid}>
+          {cardContents.map((cardContent)=>(
+            <Card href={cardContent.href} title={cardContent.title} description={cardContent.description}></Card>
+          ))}
         </footer>
   )
 }
