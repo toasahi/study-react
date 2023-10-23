@@ -3,7 +3,6 @@ import styles from '@/styles/Home.module.css'
 
 export function Footer() {
   return (
-    <>
         <footer className={styles.grid}>
           <a
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -62,6 +61,5 @@ export function Footer() {
             </p>
           </a>
         </footer>
-    </>
   )
 }

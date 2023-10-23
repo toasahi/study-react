@@ -3,7 +3,6 @@ import styles from '@/styles/Home.module.css'
 
 export function NextJsLogo() {
   return (
-    <>
       <div className={styles.center}>
           <Image
             className={styles.logo}
@@ -14,6 +13,5 @@ export function NextJsLogo() {
             priority
           />
         </div>  
-    </>
   )
 }

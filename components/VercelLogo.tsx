@@ -3,7 +3,6 @@ import styles from '@/styles/Home.module.css'
 
 export function VercelLogo() {
   return (
-    <>
       <div>
             <a
               href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
@@ -21,6 +20,5 @@ export function VercelLogo() {
               />
             </a>
           </div>
-    </>
   )
 }
