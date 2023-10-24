@@ -28,7 +28,7 @@ export function Footer() {
   return (
         <footer className={classes.grid}>
           {cardContents.map((cardContent)=>(
-            <Card href={cardContent.href} title={cardContent.title} description={cardContent.description}></Card>
+            <Card key={cardContent.href} href={cardContent.href} title={cardContent.title} description={cardContent.description}></Card>
           ))}
         </footer>
   )
