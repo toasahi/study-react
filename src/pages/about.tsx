@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Main } from '@/components/Main'
+import { Main } from '@/src/components/Main'
 
 export default function About() {
   return (

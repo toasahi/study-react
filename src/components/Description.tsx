@@ -1,4 +1,4 @@
-import classes from '@/components/Description.module.css'
+import classes from '@/src/components/Description.module.css'
 import { VercelLogo } from './VercelLogo'
 
 type Props = {
