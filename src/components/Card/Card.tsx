@@ -1,5 +1,5 @@
 
-import classes from '@/src/components/Card.module.css'
+import classes from '@/src/components/Card/Card.module.css'
 type Props = {
     href: string;
     title:string;

@@ -1,6 +1,6 @@
 
-import classes from '@/src/components/Footer.module.css'
-import { Card } from './Card'
+import { Card } from '@/src/components/Card/Card'
+import classes from '@/src/components/Footer/Footer.module.css'
 
 const ITEMS = [
   {

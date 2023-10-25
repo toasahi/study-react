@@ -1,5 +1,5 @@
-import classes from '@/src/components/Description.module.css'
-import { VercelLogo } from './VercelLogo'
+import classes from '@/src/components/Description/Description.module.css'
+import { VercelLogo } from '@/src/components/Logo/VercelLogo';
 
 type Props = {
     page: string;
