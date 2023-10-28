@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import classes from '@/src/components/Logo/NextJsLogo/NextJsLogo.module.css'
 
-export function NextJsLogo() {
+export const NextJsLogo= () => {
   return (
       <div className={classes.center}>
           <Image

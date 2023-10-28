@@ -6,7 +6,7 @@ type Props = {
     description:string;
 }
 
-export function Card(props:Props) {
+export const Card = (props:Props)=>{
     const { href,title,description} = props
   return (
           <a

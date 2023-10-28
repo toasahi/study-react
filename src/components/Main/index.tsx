@@ -12,7 +12,6 @@ type Props = {
     page:string;
 }
 
-
 const ITEMS = [
   {
     href : "https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app",
@@ -36,8 +35,7 @@ const ITEMS = [
   }
 ]
 
-export function Main(props:Props) {
-    const {page} = props;
+export const Main = (props:Props) => {
     const [items,setItems] = useState(ITEMS);
   const handleReduce = useCallback(()=>{
     setItems((prevItems)=>{
@@ -47,7 +45,7 @@ export function Main(props:Props) {
   return (
     <main className={`${classes.main} ${inter.className}`}>
         <Header/>
-        <Description page={page} handleReduce={handleReduce}>{items.length}</Description>
+        <Description page={props.page} handleReduce={handleReduce}>{items.length}</Description>
         <NextJsLogo/>
         <Footer items={items}/>
     </main>

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import classes from '@/src/components/Logo/NextJsLogo/NextJsLogo.module.css'
 
-export function VercelLogo() {
+export const VercelLogo = () =>  {
   return (
       <div>
             <a

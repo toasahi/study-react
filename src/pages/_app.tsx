@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useInputArray } from '@/src/hooks/useInputArray';
 import { useCounter } from '@/src/hooks/useCounter';
 
-export default function App({ Component, pageProps }: AppProps) {
+const App = ({ Component, pageProps }: AppProps) =>{
   const counter = useCounter()
   const inputArray = useInputArray()
   return (
@@ -19,3 +19,5 @@ export default function App({ Component, pageProps }: AppProps) {
     <Component {...pageProps} {...counter} {...inputArray} />
   </>)
 }
+
+export default App

@@ -8,7 +8,7 @@ type Props = {
     handleReduce:()=>void;
 }
 
-export function Description(props:Props) {
+export const Description = (props:Props) => {
     const {page,children,handleReduce} = props;
     return (
         <div className={classes.description}>
