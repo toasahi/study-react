@@ -2,7 +2,12 @@ import '@/src/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { useInputArray } from '@/src/hooks/useInputArray';
+import { useCounter } from '@/src/hooks/useCounter';
+
 export default function App({ Component, pageProps }: AppProps) {
+  const counter = useCounter()
+  const inputArray = useInputArray()
   return (
   <>
     <Head>
@@ -11,6 +16,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
     </Head>
-    <Component {...pageProps} />
+    <Component {...pageProps} {...counter} {...inputArray} />
   </>)
 }

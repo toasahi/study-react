@@ -1,12 +1,20 @@
 import { Main } from '@/src/components/Main'
 import { useBgLightBlue } from '@/src/hooks/useBgLightBlue'
-import { useCounter } from '@/src/hooks/useCounter'
-import { useInputArray } from '@/src/hooks/useInputArray'
 import Head from 'next/head'
+import { ChangeEvent } from 'react'
 
-export default function Home() {
-  const {count,isShow,handleClick,handleDisplay} = useCounter();
-  const {text,array,handleAdd,handleChange} = useInputArray();  
+type Props = {
+  count:number;
+  isShow:boolean;
+  handleClick:()=>void;
+  handleDisplay:()=>void;
+  text:string;
+  array:string[];
+  handleAdd:()=>void;
+  handleChange:(e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export default function Home({count,isShow,handleClick,handleDisplay,text,array,handleAdd,handleChange}:Props) {
   useBgLightBlue();
   
   return (

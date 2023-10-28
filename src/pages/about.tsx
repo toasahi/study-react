@@ -1,12 +1,21 @@
 import Head from 'next/head'
 import { Main } from '@/src/components/Main'
-import { useInputArray } from '@/src/hooks/useInputArray';
 import { useBgLightBlue } from '@/src/hooks/useBgLightBlue';
-import { useCounter } from '@/src/hooks/useCounter';
+import { ChangeEvent } from 'react';
 
-export default function About() {
-  const {count,isShow,handleClick,handleDisplay} = useCounter();
-  const {text,array,handleAdd,handleChange} = useInputArray();  
+type Props = {
+  count:number;
+  isShow:boolean;
+  handleClick:()=>void;
+  handleDisplay:()=>void;
+  text:string;
+  array:string[];
+  handleAdd:()=>void;
+  handleChange:(e: ChangeEvent<HTMLInputElement>) => void
+}
+
+export default function About({count,isShow,handleClick,handleDisplay,text,array,handleAdd,handleChange}:Props) {
+
   useBgLightBlue();
   
   return (
