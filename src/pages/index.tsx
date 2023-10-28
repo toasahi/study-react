@@ -1,10 +1,11 @@
 import { Main } from '@/src/components/Main'
-import { useBgLightBlue } from '@/src/hooks/useBgLightBlue'
+import { useBgColor } from '@/src/hooks/useBgColor'
 import Head from 'next/head'
 import { ChangeEvent } from 'react'
 
 type Props = {
   count:number;
+  doubleCount:number;
   isShow:boolean;
   handleClick:()=>void;
   handleDisplay:()=>void;
@@ -14,8 +15,8 @@ type Props = {
   handleChange:(e: ChangeEvent<HTMLInputElement>) => void
 }
 
-export default function Home({count,isShow,handleClick,handleDisplay,text,array,handleAdd,handleChange}:Props) {
-  useBgLightBlue();
+export default function Home({count,doubleCount,isShow,handleClick,handleDisplay,text,array,handleAdd,handleChange}:Props) {
+  useBgColor();
   
   return (
     <>
@@ -23,7 +24,7 @@ export default function Home({count,isShow,handleClick,handleDisplay,text,array,
         <title>Index</title>
       </Head>
 
-      {isShow ? <h2>{count}</h2> : null}
+      {isShow ? <h2>{doubleCount}</h2> : null}
       <button onClick={handleClick}>ボタン</button>
       <button onClick={handleDisplay}>{!isShow ? '表示' : '非表示'}</button>
 

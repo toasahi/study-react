@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Main } from '@/src/components/Main'
-import { useBgLightBlue } from '@/src/hooks/useBgLightBlue';
+import { useBgColor } from '@/src/hooks/useBgColor';
 import { ChangeEvent } from 'react';
 
 type Props = {
@@ -16,7 +16,7 @@ type Props = {
 
 export default function About({count,isShow,handleClick,handleDisplay,text,array,handleAdd,handleChange}:Props) {
 
-  useBgLightBlue();
+  useBgColor();
   
   return (
     <>
