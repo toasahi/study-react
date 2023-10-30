@@ -14,6 +14,7 @@ const About = (props:Props)=> {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Header/>
       {props.isShow ? <h2>{props.count}</h2> : null}
       <button onClick={props.handleClick}>ボタン</button>
       <button onClick={props.handleDisplay}>{!props.isShow ? '表示' : '非表示'}</button>

@@ -11,10 +11,7 @@ export default function Home(props:Props) {
       <Head>
         <title>Index</title>
       </Head>
-
-      {props.isShow ? <h2>{props.doubleCount}</h2> : null}
-      <button onClick={props.handleClick}>ボタン</button>
-      <button onClick={props.handleDisplay}>{!props.isShow ? '表示' : '非表示'}</button>
+      <Header/>
 
       <button onClick={props.handleAdd}>値の追加</button>
       <input type='text' value={props.text} onChange={props.handleChange}/>
