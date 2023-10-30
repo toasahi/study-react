@@ -44,7 +44,6 @@ export const Main = (props:Props) => {
   },[])
   return (
     <main className={`${classes.main} ${inter.className}`}>
-        <Header/>
         <Description page={props.page} handleReduce={handleReduce}>{items.length}</Description>
         <NextJsLogo/>
         <Footer items={items}/>

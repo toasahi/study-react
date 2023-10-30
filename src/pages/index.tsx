@@ -1,11 +1,29 @@
-import { Main } from '@/src/components/Main'
-import { useBgColor } from '@/src/hooks/useBgColor'
-import { Props } from '@/src/types/pages';
+import { Header } from '@/src/components/Header';
 import Head from 'next/head'
+import { useCallback, useEffect, useState } from 'react';
 
-export default function Home(props:Props) {
-  useBgColor();
-  
+type Posts = {
+  body: string;
+  id: number;
+title: string;
+userId: number;
+}
+
+const Home = () =>{
+  const [posts,setPosts] = useState<Array<Posts>>([]);
+
+  const getPosts = useCallback(async ()=>{
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const json = await res.json()
+    setPosts(()=>{
+      return [,...json]
+    })
+  },[])
+
+  useEffect(()=>{
+    getPosts();
+  },[getPosts])
+
   return (
     <>
       <Head>
@@ -13,17 +31,16 @@ export default function Home(props:Props) {
       </Head>
       <Header/>
 
-      <button onClick={props.handleAdd}>値の追加</button>
-      <input type='text' value={props.text} onChange={props.handleChange}/>
-      <ul>
-        {props.array.map(item=>{
-          return(
-            <li key={item}>{item}</li>
-          )
-        })}
-      </ul>
-
-      <Main page='index'/>
+      {posts.length > 0 ? <ol>
+      {posts.map((post)=>{
+        return(
+          <li key={post.id}>{post.id}.:{post.title}</li>
+        )
+      })}
+      </ol> : null
+      }
     </>
   )
 }
+
+export default Home

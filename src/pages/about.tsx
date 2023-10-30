@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Main } from '@/src/components/Main'
 import { useBgColor } from '@/src/hooks/useBgColor';
 import { Props } from '@/src/types/pages';
+import { Header } from '@/src/components/Header';
 
 const About = (props:Props)=> {
   useBgColor();
