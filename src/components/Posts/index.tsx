@@ -1,18 +1,46 @@
-import { Header } from '@/src/components/Header';
-import Head from 'next/head'
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
 
 type Posts = {
   body: string;
   id: number;
-title: string;
-userId: number;
+  title: string;
+  userId: number;
+}
+
+type State = {data:Array<Posts>,loading:boolean,error:Error}
+
+type Action = {type: "end" | "error"; data: Array<Posts>; error: Error; }
+
+const initialState:State = {
+  data: [],
+    loading: true,
+    error: {
+      message: '',
+      name: ''
+    }
+}
+
+const reducer = (state:State ,action: Action) => {
+  switch(action.type){
+    case "end": {
+      return {
+        ...state,
+        data: action.data,
+        loading: false,
+      }
+    };
+    case "error": {
+      return {
+        ...state,
+        loading: false,
+        error:action.error
+      }
+    }
+  }
 }
 
 export const Posts = () =>{
-  const [posts,setPosts] = useState<Array<Posts>>([]);
-  const [loading,setLoading] = useState(true);
-  const [error,setError] = useState<Error>();
+  const [state,dispatch] = useReducer(reducer,initialState)
 
   const getPosts = useCallback(async ()=>{
     try {
@@ -20,16 +48,18 @@ export const Posts = () =>{
       if(!res.ok){
         throw new Error("エラーが発生しました")
       }
-      const json = await res.json()
-      setPosts(()=>{
-        return [...json]
+      const json = await res.json() as Posts[]
+      dispatch({
+        type: 'end', data: json,
+        error: {message:"",name:""}
       })
-    } catch (e) {
-        if(e instanceof Error){
-          setError(e);
+    } catch (error) {
+        if(error instanceof Error){
+          dispatch({
+            type: 'error', data: [],
+            error: error
+          })
         }
-    }finally{
-      setLoading(false)
     }
   },[])
 
@@ -37,22 +67,20 @@ export const Posts = () =>{
     getPosts();
   },[getPosts])
 
-  if(loading){
+  if(state.loading){
     return <div>ローディング</div>
   }
-  if(error){
-    return (
-        <div>{error.message}</div>
-    )
+  if(state.error.message !== ""){
+    return <div>{state.error.message}</div>
   }
-  if(posts.length === 0){
+  if(state.data.length === 0){
     return <div>データは空です</div>
   }
 
   return (
     <>
       <ol>
-      {posts.map((post)=>{
+      {state.data.map((post)=>{
         return(
           <li key={post.id}>{post.id}.:{post.title}</li>
         )
