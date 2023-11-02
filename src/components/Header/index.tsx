@@ -9,6 +9,14 @@ const NAV_ITEMS = [
     {
         href: "/",
         label: "index"
+    },
+    {
+        href: "/comments",
+        label: "comments"
+    },
+    {
+        href: "/users",
+        label: "users"
     }
 ]
 
