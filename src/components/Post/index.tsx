@@ -20,7 +20,6 @@ export const Post = () =>{
       <Head>
         <title>{post?.title}</title>
       </Head>
-      <Header/>
       <h1>{post?.title}</h1>
       <p>{post?.body}</p>
       {user?.name ? <div>Created by {user?.name}</div>  : null}

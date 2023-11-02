@@ -18,13 +18,13 @@ export const Posts = () =>{
 
   return (
     <>
-      <ol className={classes.posts}>
+      <ul className={classes.posts}>
       {data.map((post)=>{
         return(
-          <li key={post.id}><Link href={`/posts/${post.id}`}>{post.title}</Link></li>
+          <li key={post.id}><Link href={`/posts/${post.id}`}>{post.id}.{post.title}</Link></li>
         )
       })}
-      </ol>
+      </ul>
     </>
   )
 }
