@@ -1,18 +1,9 @@
-import { Header } from '@/src/components/Header';
-import Head from 'next/head'
-import { useRouter } from 'next/router';
+import { Post } from '@/src/components/Post';
 
 const PostId = () =>{
-    const router = useRouter()
   return (
     <>
-      <Head>
-        <title>Index</title>
-      </Head>
-      <Header/>
-      <div>
-        {router.query.id}
-      </div>
+      <Post/>
     </>
   )
 }
