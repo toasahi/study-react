@@ -1,17 +1,17 @@
 import { Header } from '@/src/components/Header';
-import { Posts } from '@/src/components/Posts';
+import { Posts as PostsComponent } from '@/src/components/Posts';
 import Head from 'next/head'
 
-const Home = () =>{
+const Posts = () =>{
   return (
     <div>
       <Head>
         <title>Index</title>
       </Head>
       <Header/>
-      <Posts/>
+      <PostsComponent/>
     </div>
   )
 }
 
-export default Home
+export default Posts
