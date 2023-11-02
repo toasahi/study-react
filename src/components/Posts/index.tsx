@@ -1,4 +1,6 @@
 import { usePosts } from '@/src/hooks/usePosts';
+import classes from '@/src/components/Posts/Posts.module.css'
+import Link from 'next/link';
 
 export const Posts = () =>{
   
@@ -16,10 +18,10 @@ export const Posts = () =>{
 
   return (
     <>
-      <ol>
+      <ol className={classes.posts}>
       {data.map((post)=>{
         return(
-          <li key={post.id}>{post.id}.:{post.title}</li>
+          <li key={post.id}><Link href={`/post/${post.id}`}>{post.title}</Link></li>
         )
       })}
       </ol>
