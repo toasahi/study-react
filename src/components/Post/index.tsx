@@ -1,6 +1,4 @@
 import { usePost } from '@/src/hooks/usePost';
-import { Header } from '@/src/components/Header';
-import classes from '@/src/styles/Home.module.css'
 
 import Head from 'next/head'
 
