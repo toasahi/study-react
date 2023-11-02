@@ -4,11 +4,11 @@ import classes from "@/src/components/Header/Header.module.css"
 const NAV_ITEMS = [
     {
         href: "/posts",
-        label: "index"
+        label: "posts"
     },
     {
-        href: "/about",
-        label: "about"
+        href: "/",
+        label: "index"
     }
 ]
 
