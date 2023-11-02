@@ -21,7 +21,7 @@ export const Posts = () =>{
       <ol className={classes.posts}>
       {data.map((post)=>{
         return(
-          <li key={post.id}><Link href={`/post/${post.id}`}>{post.title}</Link></li>
+          <li key={post.id}><Link href={`/posts/${post.id}`}>{post.title}</Link></li>
         )
       })}
       </ol>
