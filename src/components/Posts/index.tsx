@@ -12,19 +12,17 @@ export const Posts = () =>{
   if(error){
     return <div>{error.message}</div>
   }
-  if(isEmpty || data === undefined){
+  if(data && isEmpty){
     return <div>データは空です</div>
   }
 
   return (
-    <>
       <ul className={classes.posts}>
-      {data.map((post)=>{
+      {data?.map((post)=>{
         return(
           <li key={post.id}><Link href={`/posts/${post.id}`}>{post.id}.{post.title}</Link></li>
         )
       })}
       </ul>
-    </>
   )
 }

@@ -13,6 +13,7 @@ export const Post = () =>{
     return <div>{error.message}</div>
   }
 
+
   return (
     <div>
       <Head>
