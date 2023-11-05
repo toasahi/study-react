@@ -1,11 +1,11 @@
-import { User } from "@/src/components/User"
+import { User } from '@/src/components/User';
 
-const UserId = () =>{
-  return (
-    <div>
-      <User/>
-    </div>
-  )
-}
+const UserId = () => {
+    return (
+        <div>
+            <User />
+        </div>
+    );
+};
 
-export default UserId
+export default UserId;

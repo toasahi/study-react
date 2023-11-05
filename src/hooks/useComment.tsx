@@ -1,12 +1,14 @@
-import {Comment} from "@/src/types/comment"
-import { commentsFetcher } from "@/src/utils/commentsFetcher"
-import useSWR from "swr"
-import { useRouter } from "next/router"
+import { Comment } from '@/src/types/comment';
+import useSWR from 'swr';
+import { useRouter } from 'next/router';
+import { fetcher } from '@/src/utils/fetcher';
 
 export const useComment = () => {
     const router = useRouter();
-    const {data:comments} = useSWR<Comment[],Error>(`https://jsonplaceholder.typicode.com/comments`,commentsFetcher)
-    const {data,error,isLoading} = useSWR<Comment[],Error>(`https://jsonplaceholder.typicode.com/comments?postId=${comments &&  router.query.id && comments[Number(router.query.id)].postId}`,commentsFetcher)
+    const { data, error, isLoading } = useSWR<Comment, Error>(
+        `https://jsonplaceholder.typicode.com/comments/${router.query.id}`,
+        fetcher
+    );
 
-    return {data,error,isLoading}
-}
+    return { data, error, isLoading };
+};

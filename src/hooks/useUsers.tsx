@@ -1,10 +1,12 @@
-
-import { User } from "@/src/types/user"
-import { usersFetcher } from "@/src/utils/usersFetcher"
-import useSWR from "swr"
+import { User } from '@/src/types/user';
+import { arrayFetcher } from '@/src/utils/arrayFetcher';
+import useSWR from 'swr';
 
 export const useUsers = () => {
-    const {data:users,error:userError,isLoading} = useSWR<User[],Error>(`https://jsonplaceholder.typicode.com/users`,usersFetcher)
+    const { data, error, isLoading } = useSWR<User[], Error>(
+        'https://jsonplaceholder.typicode.com/users',
+        arrayFetcher
+    );
 
-    return {users,isLoading,userError ,isEmpty: users && users.length === 0}
-}
+    return { data, error, isLoading, isEmpty: data && data.length === 0 };
+};

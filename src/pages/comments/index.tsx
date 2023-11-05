@@ -1,15 +1,15 @@
-import { Comments as CommentsComponent } from '@/src/components/Comments'
-import Head from 'next/head'
+import { Comments as CommentsComponent } from '@/src/components/Comments';
+import Head from 'next/head';
 
-const Comments = () =>{
-  return (
-    <div>
-      <Head>
-        <title>Index</title>
-      </Head>
-      <CommentsComponent/>
-    </div>
-  )
-}
+const Comments = () => {
+    return (
+        <div>
+            <Head>
+                <title>Index</title>
+            </Head>
+            <CommentsComponent />
+        </div>
+    );
+};
 
-export default Comments
+export default Comments;

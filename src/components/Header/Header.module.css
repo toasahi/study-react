@@ -7,13 +7,13 @@
     align-items: center;
 }
 
-.anchor{
+.anchor {
     font-size: 1.2rem;
     display: inline-block;
-    padding: 8px 24px
+    padding: 8px 24px;
 }
 
 .anchor:hover {
     background: rgba(var(--card-rgb), 0.1);
     border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
+}

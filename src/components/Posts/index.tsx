@@ -1,28 +1,31 @@
 import { usePosts } from '@/src/hooks/usePosts';
-import classes from '@/src/components/Posts/Posts.module.css'
+import classes from '@/src/components/Posts/Posts.module.css';
 import Link from 'next/link';
 
-export const Posts = () =>{
-  
-  const { data, error,isLoading,isEmpty } = usePosts()
+export const Posts = () => {
+    const { data, error, isLoading, isEmpty } = usePosts();
 
-  if(isLoading){
-    return <div>ローディング</div>
-  }
-  if(error){
-    return <div>{error.message}</div>
-  }
-  if(data && isEmpty){
-    return <div>データは空です</div>
-  }
+    if (isLoading) {
+        return <div>ローディング</div>;
+    }
+    if (error) {
+        return <div>{error.message}</div>;
+    }
+    if (data && isEmpty) {
+        return <div>データは空です</div>;
+    }
 
-  return (
-      <ul className={classes.posts}>
-      {data?.map((post)=>{
-        return(
-          <li key={post.id}><Link href={`/posts/${post.id}`}>{post.id}.{post.title}</Link></li>
-        )
-      })}
-      </ul>
-  )
-}
+    return (
+        <ul className={classes.posts}>
+            {data?.map((post) => {
+                return (
+                    <li key={post.id}>
+                        <Link href={`/posts/${post.id}`}>
+                            {post.id}.{post.title}
+                        </Link>
+                    </li>
+                );
+            })}
+        </ul>
+    );
+};
