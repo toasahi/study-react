@@ -1,5 +1,6 @@
 import { useUsers } from '@/src/hooks/useUsers';
 import classes from '@/src/components/Users/Users.module.css'
+import Link from 'next/link';
 
 export const Users = () =>{
   
@@ -20,7 +21,7 @@ export const Users = () =>{
       <ul className={classes.users}>
       {users?.map((user)=>{
         return(
-          <li key={user.id}>{user.name}</li>
+          <li key={user.id}><Link href={`/users/${user.id}`}>{user.name}{user.email}</Link></li>
         )
       })}
       </ul>
