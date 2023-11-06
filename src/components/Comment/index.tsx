@@ -11,9 +11,12 @@ export const Comment = () => {
     }
 
     return (
+        <div>
+            <h2>{data?.body}</h2>
         <ul>
             <li>{data?.name}</li>
-            <li>{data?.body}</li>
+            <li>{data?.email}</li>
         </ul>
+        </div>
     );
 };
