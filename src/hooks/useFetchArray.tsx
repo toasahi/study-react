@@ -40,3 +40,16 @@ export const useCommentsByPostId = (id: number) => {
 
     return { data, error, isLoading, isEmpty: data && data.length === 0 };
 };
+
+type Props = {
+    id: number;
+};
+
+export const usePostsByUserId = (props: Props) => {
+    const { data, error, isLoading } = useSWR<Post[], Error>(
+        `${API_URL}/posts?userId=${props.id}`,
+        arrayFetcher
+    );
+
+    return { data, error, isLoading, isEmpty: data && data.length === 0 };
+};
