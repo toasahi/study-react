@@ -1,3 +1,4 @@
+import { PostsByCommentId } from '@/src/components/Post/PostByCommentId';
 import { useComment } from '@/src/hooks/useComment';
 
 export const Comment = () => {
@@ -17,6 +18,12 @@ export const Comment = () => {
                 <li>{data?.name}</li>
                 <li>{data?.email}</li>
             </ul>
+            <h2>元の記事</h2>
+            {data ? (
+                <>
+                    <PostsByCommentId id={data?.id} />
+                </>
+            ) : null}
         </div>
     );
 };
