@@ -1,5 +1,5 @@
-import { usePosts } from '@/src/hooks/usePosts';
 import classes from '@/src/components/Posts/Posts.module.css';
+import { usePosts } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
 
 export const Posts = () => {

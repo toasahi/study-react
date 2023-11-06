@@ -1,5 +1,5 @@
-import { useUsers } from '@/src/hooks/useUsers';
 import classes from '@/src/components/Users/Users.module.css';
+import { useUsers } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
 
 export const Users = () => {

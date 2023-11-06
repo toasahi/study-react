@@ -1,5 +1,5 @@
 import classes from '@/src/components/Comments/comments.module.css';
-import { useComments } from '@/src/hooks/useComments';
+import { useComments } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
 
 export const Comments = () => {
