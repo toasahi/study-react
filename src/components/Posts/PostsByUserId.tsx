@@ -18,8 +18,8 @@ export const PostsByUserId = (props: Props) => {
     return (
         <ul>
             {data?.map((user) => (
-                <Link href={`/posts/${user.id}`}>
-                    <li key={user.body}>{user.title}</li>
+                <Link key={user.body} href={`/posts/${user.id}`}>
+                    <li>{user.title}</li>
                 </Link>
             ))}
         </ul>
