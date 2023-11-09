@@ -1,4 +1,5 @@
 import { usePostByCommentId } from '@/src/hooks/usePostByCommentId';
+import Link from 'next/link';
 
 type Props = {
     id: number;
@@ -14,5 +15,6 @@ export const PostsByCommentId = (props: Props) => {
         return <div>{error.message}</div>;
     }
 
-    return <div>{data?.body}</div>;
+    return (
+        <Link href={`/posts/${data?.id}`}>{data?.title}</Link>)
 };
