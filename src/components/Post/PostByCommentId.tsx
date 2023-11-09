@@ -5,7 +5,7 @@ type Props = {
     id: number;
 };
 
-export const PostsByCommentId = (props: Props) => {
+export const PostByCommentId = (props: Props) => {
     const { data, error, isLoading } = usePostByCommentId(props.id);
 
     if (isLoading) {
