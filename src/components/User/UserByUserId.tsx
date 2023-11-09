@@ -5,7 +5,7 @@ type Props = {
 };
 
 export const UserByUserId = (props: Props) => {
-    const { data, error, isLoading } = useUserByUserId(props);
+    const { data, error, isLoading } = useUserByUserId(props.id);
 
     if (isLoading) {
         return <div>ローディング</div>;

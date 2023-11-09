@@ -3,14 +3,10 @@ import { fetcher } from '@/src/utils/fetcher';
 
 import useSWR from 'swr';
 
-type Props = {
-    id: number;
-};
-
-export const usePostByCommentId = (props: Props) => {
+export const usePostByCommentId = (id:number) => {
     const { data, error, isLoading } = useSWR<Post, Error>(
-        props.id
-            ? `https://jsonplaceholder.typicode.com/posts/${props.id}`
+        id
+            ? `https://jsonplaceholder.typicode.com/posts/${id}`
             : null,
         fetcher
     );
