@@ -3,11 +3,9 @@ import { fetcher } from '@/src/utils/fetcher';
 
 import useSWR from 'swr';
 
-export const usePostByCommentId = (id:number) => {
+export const usePostByCommentId = (id: number) => {
     const { data, error, isLoading } = useSWR<Post, Error>(
-        id
-            ? `https://jsonplaceholder.typicode.com/posts/${id}`
-            : null,
+        id ? `https://jsonplaceholder.typicode.com/posts/${id}` : null,
         fetcher
     );
     return {

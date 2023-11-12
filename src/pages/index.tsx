@@ -6,7 +6,7 @@ const Home = () => {
             <Head>
                 <title>Index</title>
             </Head>
-            <h1>Reactで学ぶ</h1>
+            <h1 className="text-3xl font-bold underline">Reactで学ぶ</h1>
             <p>初めてのプログラミング教室</p>
         </>
     );

@@ -15,6 +15,5 @@ export const PostByCommentId = (props: Props) => {
         return <div>{error.message}</div>;
     }
 
-    return (
-        <Link href={`/posts/${data?.id}`}>{data?.title}</Link>)
+    return <Link href={`/posts/${data?.id}`}>{data?.title}</Link>;
 };
