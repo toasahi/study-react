@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import classes from '@/src/components/Header/Header.module.css';
 
 const NAV_ITEMS = [
     {
@@ -22,11 +21,11 @@ const NAV_ITEMS = [
 
 export const Header = () => {
     return (
-        <header className={classes.header}>
+        <header className="flex justify-center items-center border-b w-full h-24">
             {NAV_ITEMS.map((item) => {
                 return (
                     <Link
-                        className={classes.anchor}
+                        className="text-xl inline-block py-2 px-6 hover:bg-[rgba(180, 185, 188,0.1)] hover:border hover:border-[#838687] hover:border-opacity-{0.15}"
                         href={item.href}
                         key={item.href}
                     >
@@ -37,3 +36,8 @@ export const Header = () => {
         </header>
     );
 };
+
+// .anchor:hover {
+//     background: rgba(var(--card-rgb), 0.1);
+//     border: 1px solid rgba(var(--card-border-rgb), 0.15);
+// }

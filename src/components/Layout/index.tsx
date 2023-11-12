@@ -1,5 +1,4 @@
 import { Header } from '@/src/components/Header';
-import classes from '@/src/components/Layout/Layout.module.css';
 import { FC, ReactNode } from 'react';
 
 type Props = {
@@ -8,7 +7,7 @@ type Props = {
 
 const Layout: FC<Props> = (props) => {
     return (
-        <div className={classes.container}>
+        <div className="flex flex-col items-center p-2 leading-relaxed mx-auto max-w-2xl min-h-screen">
             <Header />
             {props.children}
         </div>
