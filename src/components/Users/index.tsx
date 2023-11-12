@@ -1,4 +1,3 @@
-import classes from '@/src/components/Users/Users.module.css';
 import { useUsers } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
 
@@ -17,13 +16,18 @@ export const Users = () => {
 
     return (
         <>
-            <ul className={classes.users}>
+            <ul className="grid grid-cols-2 gap-6">
                 {data?.map((user) => {
                     return (
                         <li key={user.id}>
-                            <Link href={`/users/${user.id}`}>
-                                {user.name}
-                                {user.email}
+                            <Link
+                                href={`/users/${user.id}`}
+                                className="block p-8 shadow rounded hover:bg-gray-100"
+                            >
+                                <h1 className="font-bold truncate">
+                                    {user.name}
+                                </h1>
+                                <p className="text-sm truncate">{user.email}</p>
                             </Link>
                         </li>
                     );

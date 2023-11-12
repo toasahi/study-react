@@ -13,14 +13,14 @@ export const Comment = () => {
 
     return (
         <div>
-            <h2>{data?.body}</h2>
-            <ul>
-                <li>{data?.name}</li>
-                <li>{data?.email}</li>
-            </ul>
-            <h2>元の記事</h2>
             {data ? (
                 <>
+                    <div className="text-lg">
+                        Created by {data.name} ({data.email})
+                    </div>
+                    <h1 className="text-3xl font-bold">{data?.body}</h1>
+                    <h2 className="text-xl font-bold mt-5">元の記事</h2>
+                    <div className="mt-3" />
                     <PostByCommentId id={data?.id} />
                 </>
             ) : null}

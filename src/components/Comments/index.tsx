@@ -1,4 +1,3 @@
-import classes from '@/src/components/Comments/comments.module.css';
 import { useComments } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
 
@@ -16,18 +15,18 @@ export const Comments = () => {
     }
 
     return (
-        <>
-            <ul className={classes.comments}>
-                {data?.map((comment) => {
-                    return (
-                        <li key={comment.id}>
-                            <Link href={`/comments/${comment.id}`}>
-                                {comment.id}.{comment.name}
-                            </Link>
-                        </li>
-                    );
-                })}
-            </ul>
-        </>
+        <ul className="space-y-4">
+            {data?.map((comment) => {
+                return (
+                    <li key={comment.id} className="border-b pb-2">
+                        <Link href={`/comments/${comment.id}`}>
+                            <h1 className="hover:text-blue-500">
+                                {comment.body}
+                            </h1>
+                        </Link>
+                    </li>
+                );
+            })}
+        </ul>
     );
 };

@@ -14,26 +14,27 @@ export const User = () => {
 
     return (
         <div>
-            <Head>
-                <title>{data?.username}</title>
-            </Head>
-            <div>
-                <h1>{data?.name}</h1>
-                <h2>詳細</h2>
-                <ul>
-                    <li>{data?.email}</li>
-                    <li>{data?.username}</li>
-                    <li>{data?.address.city}</li>
-                    <li>{data?.phone}</li>
-                    <li>{data?.website}</li>
-                </ul>
-                <h2>投稿</h2>
-                {data ? (
-                    <>
+            {data ? (
+                <>
+                    <Head>
+                        <title>{data?.username}</title>
+                    </Head>
+                    <div>
+                        <h1 className="text-2xl font-bold">{data?.name}</h1>
+                        <h2 className="text-xl font-bold mt-5">詳細</h2>
+                        <ul className="list-inside list-disc mt-2">
+                            <li>アカウント名:{data?.email}</li>
+                            <li>ユーザ名:{data?.username}</li>
+                            <li>勤務先:{data?.address.city}</li>
+                            <li>電話番号:{data?.phone}</li>
+                            <li>ホームページ:{data?.website}</li>
+                        </ul>
+                        <h2 className="text-xl font-bold mt-5">投稿</h2>
+                        <div className="mt-5" />
                         <PostsByUserId id={data.id} />
-                    </>
-                ) : null}
-            </div>
+                    </div>
+                </>
+            ) : null}
         </div>
     );
 };
