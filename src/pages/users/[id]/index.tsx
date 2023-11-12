@@ -2,7 +2,7 @@ import { User } from '@/src/components/User';
 
 const UserId = () => {
     return (
-        <div>
+        <div className='w-full'>
             <User />
         </div>
     );
