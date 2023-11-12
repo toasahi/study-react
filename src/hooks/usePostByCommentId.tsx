@@ -1,4 +1,4 @@
-import { Post } from '@/src/types/post';
+import type { Post } from '@/src/types/post';
 import { fetcher } from '@/src/utils/fetcher';
 
 import useSWR from 'swr';

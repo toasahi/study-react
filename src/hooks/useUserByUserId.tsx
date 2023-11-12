@@ -1,6 +1,7 @@
-import { User } from '@/src/types/user';
-import { fetcher } from '@/src/utils/fetcher';
 import useSWR from 'swr';
+
+import { fetcher } from '@/src/utils/fetcher';
+import type { User } from '@/src/types/user';
 
 export const useUserByUserId = (id: number) => {
     const { data, error, isLoading } = useSWR<User, Error>(

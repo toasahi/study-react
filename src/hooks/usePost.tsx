@@ -1,9 +1,8 @@
+import useSWR from 'swr';
 import { useRouter } from 'next/router';
 
-import { Post } from '@/src/types/post';
 import { fetcher } from '@/src/utils/fetcher';
-
-import useSWR from 'swr';
+import type { Post } from '@/src/types/post';
 
 export const usePost = () => {
     const router = useRouter();

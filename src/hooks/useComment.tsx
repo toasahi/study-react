@@ -1,7 +1,8 @@
-import { Comment } from '@/src/types/comment';
 import useSWR from 'swr';
 import { useRouter } from 'next/router';
+
 import { fetcher } from '@/src/utils/fetcher';
+import type{ Comment } from '@/src/types/comment';
 
 export const useComment = () => {
     const router = useRouter();

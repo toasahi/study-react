@@ -1,7 +1,9 @@
-import { User } from '@/src/types/user';
-import { fetcher } from '@/src/utils/fetcher';
-import { useRouter } from 'next/router';
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
+
+import { fetcher } from '@/src/utils/fetcher';
+import type { User } from '@/src/types/user';
+
 
 export const useUser = () => {
     const router = useRouter();
