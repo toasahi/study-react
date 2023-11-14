@@ -1,8 +1,11 @@
-import type { AppProps } from 'next/app';
+import { SWRConfig } from 'swr';
 import Head from 'next/head';
 
-import Layout from '@/src/components/Layout';
 import '@/src/styles/globals.css';
+import Layout from '@/src/components/Layout';
+import { fetcher } from '@/src/utils/fetcher';
+
+import type { AppProps } from 'next/app';
 
 const App = ({ Component, pageProps }: AppProps) => {
     return (
@@ -19,9 +22,11 @@ const App = ({ Component, pageProps }: AppProps) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Layout>
-                <Component {...pageProps} />
-            </Layout>
+            <SWRConfig value={{ fetcher }}>
+                <Layout>
+                    <Component {...pageProps} />
+                </Layout>
+            </SWRConfig>
         </>
     );
 };
