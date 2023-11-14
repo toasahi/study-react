@@ -1,6 +1,7 @@
+import Head from 'next/head';
+
 import { PostsByUserId } from '@/src/components/Posts/PostsByUserId';
 import { useUser } from '@/src/hooks/useUser';
-import Head from 'next/head';
 
 export const User = () => {
     const { data, error, isLoading } = useUser();

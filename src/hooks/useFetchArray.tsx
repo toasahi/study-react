@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 
 import { arrayFetcher } from '@/src/utils/arrayFetcher';
+
 import type { Comment } from '@/src/types/comment';
 import type { Post } from '@/src/types/post';
 import type { User } from '@/src/types/user';

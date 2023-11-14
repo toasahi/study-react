@@ -1,5 +1,6 @@
-import { Posts as PostsComponent } from '@/src/components/Posts';
 import Head from 'next/head';
+
+import { Posts as PostsComponent } from '@/src/components/Posts';
 
 const Posts = () => {
     return (

@@ -1,7 +1,8 @@
-import type { Post } from '@/src/types/post';
+import useSWR from 'swr';
+
 import { fetcher } from '@/src/utils/fetcher';
 
-import useSWR from 'swr';
+import type { Post } from '@/src/types/post';
 
 export const usePostByCommentId = (id: number) => {
     const { data, error, isLoading } = useSWR<Post, Error>(

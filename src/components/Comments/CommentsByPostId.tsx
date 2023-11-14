@@ -1,5 +1,6 @@
-import { useCommentsByPostId } from '@/src/hooks/useFetchArray';
 import Link from 'next/link';
+
+import { useCommentsByPostId } from '@/src/hooks/useFetchArray';
 
 type Props = {
     id: number;

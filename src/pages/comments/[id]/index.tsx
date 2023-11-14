@@ -1,5 +1,6 @@
-import { Comment as CommentComponent } from '@/src/components/Comment';
 import Head from 'next/head';
+
+import { Comment as CommentComponent } from '@/src/components/Comment';
 
 const Comment = () => {
     return (
