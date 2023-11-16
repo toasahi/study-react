@@ -5,11 +5,11 @@ import type { Comment } from '@/src/types/comment';
 
 export const useComment = () => {
     const router = useRouter();
-    const { data, error, isLoading } = useSWR<Comment, Error>(
+    const { data, error } = useSWR<Comment, Error>(
         router.query.id
             ? `https://jsonplaceholder.typicode.com/comments/${router.query.id}`
             : null
     );
 
-    return { data, error, isLoading };
+    return { data, error, isLoading: !data && !error };
 };

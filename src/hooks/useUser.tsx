@@ -1,14 +1,13 @@
 import { useRouter } from 'next/router';
-import useSWR from 'swr';
-
+import useSWRImmutable from 'swr/immutable';
 import type { User } from '@/src/types/user';
 
 export const useUser = () => {
     const router = useRouter();
-    const { data, error, isLoading } = useSWR<User, Error>(
+    const { data, error } = useSWRImmutable<User, Error>(
         router.query.id
             ? `https://jsonplaceholder.typicode.com/users/${router.query.id}`
             : null
     );
-    return { data, error, isLoading };
+    return { data, error, isLoading: !data && !error };
 };

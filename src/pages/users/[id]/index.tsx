@@ -3,17 +3,25 @@ import { GetServerSideProps } from 'next'
 import { User } from '@/src/components/User';
 import type { User as UserType} from '@/src/types/user';
 import { SWRConfig } from 'swr';
+import { Post } from '@/src/types/post';
 
 export const getServerSideProps = (async (context) => {
     const { id } = context.query
-    const API_URL=`https://jsonplaceholder.typicode.com/users/${id}`
-    const user = await fetch(API_URL)
+    // ユーザー情報の取得
+    const USER_API_URL=`https://jsonplaceholder.typicode.com/users/${id}`
+    const user = await fetch(USER_API_URL)
     const userData:UserType = await user.json()
+    
+    // 投稿情報の取得
+    const POAT_API_URL=`https://jsonplaceholder.typicode.com/posts?userId=${userData.id}`
+    const posts = await fetch(POAT_API_URL)
+    const postsData:Post[] = await posts.json()
 
     return {
         props: {
             fallback: {
-                [API_URL]: userData,
+                [USER_API_URL]: userData,
+                [POAT_API_URL]: postsData,
             },
         },
     };
@@ -21,7 +29,7 @@ export const getServerSideProps = (async (context) => {
 
 type Props = {
     fallback : {
-        [key:string]: UserType
+        [key:string]: UserType | Post[]
     }
 }
 
