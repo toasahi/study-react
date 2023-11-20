@@ -1,21 +1,21 @@
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps } from 'next';
 
 import { User } from '@/src/components/User';
-import type { User as UserType} from '@/src/types/user';
+import type { User as UserType } from '@/src/types/user';
 import { SWRConfig } from 'swr';
 import { Post } from '@/src/types/post';
 
 export const getServerSideProps = (async (context) => {
-    const { id } = context.query
+    const { id } = context.query;
     // ユーザー情報の取得
-    const USER_API_URL=`https://jsonplaceholder.typicode.com/users/${id}`
-    const user = await fetch(USER_API_URL)
-    const userData:UserType = await user.json()
-    
+    const USER_API_URL = `https://jsonplaceholder.typicode.com/users/${id}`;
+    const user = await fetch(USER_API_URL);
+    const userData: UserType = await user.json();
+
     // 投稿情報の取得
-    const POAT_API_URL=`https://jsonplaceholder.typicode.com/posts?userId=${userData.id}`
-    const posts = await fetch(POAT_API_URL)
-    const postsData:Post[] = await posts.json()
+    const POAT_API_URL = `https://jsonplaceholder.typicode.com/posts?userId=${userData.id}`;
+    const posts = await fetch(POAT_API_URL);
+    const postsData: Post[] = await posts.json();
 
     return {
         props: {
@@ -25,21 +25,21 @@ export const getServerSideProps = (async (context) => {
             },
         },
     };
-}) satisfies GetServerSideProps
+}) satisfies GetServerSideProps;
 
 type Props = {
-    fallback : {
-        [key:string]: UserType | Post[]
-    }
-}
+    fallback: {
+        [key: string]: UserType | Post[];
+    };
+};
 
 const UserId = (props: Props) => {
     const { fallback } = props;
     return (
-        <SWRConfig value={{fallback}}>
-        <div className="w-full">
-            <User />
-        </div>
+        <SWRConfig value={{ fallback }}>
+            <div className="w-full">
+                <User />
+            </div>
         </SWRConfig>
     );
 };
