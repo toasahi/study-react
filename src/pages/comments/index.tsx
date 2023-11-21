@@ -1,9 +1,9 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
+import { SWRConfig } from 'swr';
 
 import { Comments as CommentsComponent } from '@/src/components/Comments';
 import type { Comment } from '@/src/types/comment';
-import { GetServerSideProps } from 'next';
-import { SWRConfig } from 'swr';
 
 export const getStaticProps = (async () => {
     // ユーザー情報の取得
@@ -17,7 +17,7 @@ export const getStaticProps = (async () => {
             },
         },
     };
-}) satisfies GetServerSideProps;
+}) satisfies GetStaticProps;
 
 type Props = {
     fallback: {
