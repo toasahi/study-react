@@ -4,10 +4,11 @@ import { SWRConfig } from 'swr';
 
 import { Comments as CommentsComponent } from '@/src/components/Comments';
 import type { Comment } from '@/src/types/comment';
+import { API_URL } from '@/src/utils/const';
 
 export const getStaticProps = (async () => {
     // ユーザー情報の取得
-    const Comments_API_URL = `https://jsonplaceholder.typicode.com/comments`;
+    const Comments_API_URL = `http://localhost:50100/comments`;
     const comments = await fetch(Comments_API_URL);
     const CommentsData: Comment[] = await comments.json();
     return {
@@ -16,6 +17,7 @@ export const getStaticProps = (async () => {
                 [Comments_API_URL]: CommentsData,
             },
         },
+        revalidate: 1,
     };
 }) satisfies GetStaticProps;
 
