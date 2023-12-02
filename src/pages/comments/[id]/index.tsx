@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = (async (context) => {
     if (!comment.ok) {
         return {
             notFound: true,
-            revalidate: 1,
+            revalidate: 60,
         };
     }
     const commentData: CommentType[] = await comment.json();
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = (async (context) => {
                 [COMMENT_API_URL]: commentData,
             },
         },
-        revalidate: 1,
+        revalidate: 60,
     };
 }) satisfies GetStaticProps;
 
