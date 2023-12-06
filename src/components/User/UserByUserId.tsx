@@ -1,4 +1,4 @@
-import { useUserByUserId } from '@/src/hooks/useUserByUserId';
+import { useUserByUserId } from '@/src/hooks';
 
 type Props = {
     id: number;

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { usePostList } from '@/src/hooks/useFetchArray';
+import { usePostList } from '@/src/hooks';
 
 export const PostList = () => {
     const { data, error, isEmpty } = usePostList();

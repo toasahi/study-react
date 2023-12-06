@@ -1,0 +1,2 @@
+export {useComment,usePost,useUser,useUserByUserId,usePostByCommentId} from "@/src/hooks/useFetch"
+export {useComments,useCommentsByPostId,usePostList,usePostListByUserId,useUsers} from "@/src/hooks/useFetchArray"

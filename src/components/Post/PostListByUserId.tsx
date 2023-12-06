@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { usePostListByUserId } from '@/src/hooks/useFetchArray';
+import { usePostListByUserId } from '@/src/hooks';
 
 type Props = {
     id: number;

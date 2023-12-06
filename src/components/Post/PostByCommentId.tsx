@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { usePostByCommentId } from '@/src/hooks/usePostByCommentId';
+import { usePostByCommentId } from '@/src/hooks';
 
 type Props = {
     id: number;

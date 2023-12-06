@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useComments } from '@/src/hooks/useFetchArray';
+import { useComments } from '@/src/hooks';
 
 export const Comments = () => {
     const { data, error, isLoading, isEmpty } = useComments();
