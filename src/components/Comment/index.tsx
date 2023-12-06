@@ -1,4 +1,4 @@
-import { PostByCommentId } from '@/src/components/Post/PostByCommentId';
+import { PostByCommentId } from '@/src/components/Post';
 import { useComment } from '@/src/hooks';
 
 export const Comment = () => {

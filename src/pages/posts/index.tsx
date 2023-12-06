@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { PostList } from '@/src/components/Post/PostList';
+import { PostList } from '@/src/components/Post';
 
 const Posts = () => {
     return (
