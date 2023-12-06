@@ -7,7 +7,7 @@ import { Comment as CommentType } from '@/src/types/comment';
 import { API_URL } from '@/src/utils/const';
 
 export const getStaticPaths = (async () => {
-    const Comments_API_URL = `http://localhost:50100/comments?_limit=10`;
+    const Comments_API_URL = `${API_URL}/comments?_limit=10`;
     const comments = await fetch(Comments_API_URL);
     const commentsData: CommentType[] = await comments.json();
     const paths = commentsData.map((comment) => ({
@@ -25,12 +25,12 @@ export const getStaticProps: GetStaticProps = (async (context) => {
     }
     const { id } = context.params;
     // ユーザー情報の取得
-    const COMMENT_API_URL = `http://localhost:50100/comments/${id}`;
+    const COMMENT_API_URL = `${API_URL}/comments/${id}`;
     const comment = await fetch(COMMENT_API_URL);
     if (!comment.ok) {
         return {
             notFound: true,
-            revalidate: 60,
+            revalidate: 1000,
         };
     }
     const commentData: CommentType[] = await comment.json();
@@ -40,7 +40,7 @@ export const getStaticProps: GetStaticProps = (async (context) => {
                 [COMMENT_API_URL]: commentData,
             },
         },
-        revalidate: 60,
+        revalidate: 1000,
     };
 }) satisfies GetStaticProps;
 

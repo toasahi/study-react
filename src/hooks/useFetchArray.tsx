@@ -7,7 +7,7 @@ import { API_URL } from '@/src/utils/const';
 
 export const useComments = () => {
     const { data, error } = useSWRImmutable<Comment[], Error>(
-        `http://localhost:50100/comments`
+        `${API_URL}/comments`
     );
     return {
         data,
@@ -64,3 +64,5 @@ export const usePostsByUserId = (id: number) => {
         isEmpty: data && data.length === 0,
     };
 };
+
+

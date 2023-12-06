@@ -7,8 +7,7 @@ import type { Comment } from '@/src/types/comment';
 import { API_URL } from '@/src/utils/const';
 
 export const getStaticProps = (async () => {
-    // ユーザー情報の取得
-    const Comments_API_URL = `http://localhost:50100/comments`;
+    const Comments_API_URL = `${API_URL}/comments`;
     const comments = await fetch(Comments_API_URL);
     const CommentsData: Comment[] = await comments.json();
     return {
@@ -17,6 +16,7 @@ export const getStaticProps = (async () => {
                 [Comments_API_URL]: CommentsData,
             },
         },
+        revalidate: 60,
     };
 }) satisfies GetStaticProps;
 
