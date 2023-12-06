@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { Posts as PostsComponent } from '@/src/components/Posts';
+import { PostList } from '@/src/components/Post/PostList';
 
 const Posts = () => {
     return (
@@ -8,7 +8,7 @@ const Posts = () => {
             <Head>
                 <title>Index</title>
             </Head>
-            <PostsComponent />
+            <PostList />
         </div>
     );
 };

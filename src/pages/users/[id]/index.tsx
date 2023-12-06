@@ -14,15 +14,15 @@ export const getServerSideProps = (async (context) => {
     const userData: UserType = await user.json();
 
     // 投稿情報の取得
-    const POAT_API_URL = `${API_URL}/posts?userId=${userData.id}`;
-    const posts = await fetch(POAT_API_URL);
+    const POST_API_URL = `${API_URL}/users/${userData.id}/posts`;
+    const posts = await fetch(POST_API_URL);
     const postsData: Post[] = await posts.json();
 
     return {
         props: {
             fallback: {
                 [USER_API_URL]: userData,
-                [POAT_API_URL]: postsData,
+                [POST_API_URL]: postsData,
             },
         },
     };

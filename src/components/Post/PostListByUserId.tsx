@@ -1,17 +1,18 @@
 import Link from 'next/link';
 
-import { usePosts } from '@/src/hooks/useFetchArray';
+import { usePostListByUserId } from '@/src/hooks/useFetchArray';
 
-export const Posts = () => {
-    const { data, error, isLoading, isEmpty } = usePosts();
+type Props = {
+    id: number;
+};
 
-    if (isLoading) {
-        return <div>ローディング</div>;
-    }
+export const PostListByUserId = (props: Props) => {
+    const { data, error,isEmpty } = usePostListByUserId(props.id);
+
     if (error) {
         return <div>{error.message}</div>;
     }
-    if (data && isEmpty) {
+    if (isEmpty) {
         return <div>データは空です</div>;
     }
 

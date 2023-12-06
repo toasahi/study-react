@@ -17,7 +17,7 @@ export const useComments = () => {
     };
 };
 
-export const usePosts = () => {
+export const usePostList = () => {
     const { data, error } = useSWRImmutable<Post[], Error>(`${API_URL}/posts`);
 
     return {
@@ -52,9 +52,9 @@ export const useCommentsByPostId = (id: number) => {
     };
 };
 
-export const usePostsByUserId = (id: number) => {
+export const usePostListByUserId = (id: number) => {
     const { data, error } = useSWRImmutable<Post[], Error>(
-        `${API_URL}/posts?userId=${id}`
+        id ? `${API_URL}/users/${id}/posts` : null
     );
 
     return {
@@ -64,5 +64,3 @@ export const usePostsByUserId = (id: number) => {
         isEmpty: data && data.length === 0,
     };
 };
-
-
